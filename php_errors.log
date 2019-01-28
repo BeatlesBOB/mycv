@@ -1,0 +1,1 @@
+[28-Jan-2019 09:25:26 UTC] PHP Fatal error:  Class 'App\Controller\Controller' not found in /home/ubuntu/workspace/my_cv/src/Controller/LuckyController.php on line 7
