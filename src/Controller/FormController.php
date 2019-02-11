@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,7 +15,9 @@ class FormController extends AbstractController
     {
         $loisir = new Loisirs();
         $form = $this->createForm(LoisirsType::class, $loisir);
-        return $this->render('Loisir/create.html.twig', [
+        return $this->render(
+            'Loisir/create.html.twig',
+            [
             'entity' => $loisir,
             'form' => $form->createView(),
             ]
@@ -26,7 +29,9 @@ class FormController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
         $loisir = $entityManager->getRepository(Loisirs::class)->findOneBy(['id' => $id]);
         $form = $this->createForm(LoisirsType::class, $loisir);
-        return $this->render('Loisir/create.html.twig', [
+        return $this->render(
+            'Loisir/create.html.twig',
+            [
             'entity' => $loisir,
             'form' => $form->createView(),
             ]
@@ -46,7 +51,9 @@ class FormController extends AbstractController
             $error="Vous ne sortez par de chez vous";
         }
         
-        return $this->render('error/error.html.twig', [
+        return $this->render(
+            'error/error.html.twig',
+            [
             'error' => $error,
             ]
         );
@@ -68,7 +75,9 @@ class FormController extends AbstractController
             return $this->redirectToRoute('app_lucky_number');
         }
     
-        return $this->render('Loisir/create.html.twig', [
+        return $this->render(
+            'Loisir/create.html.twig',
+            [
             'entity' => $loisir,
             'form' => $form->createView(),
             ]

@@ -41,3 +41,5 @@ validbd:
     path: /bd/valid
     controller: App\Controller\FormController::valid
     
+app_logout:
+    path: /logout
