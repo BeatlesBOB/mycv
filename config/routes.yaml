@@ -13,5 +13,31 @@
 
 # the "app_lucky_number" route name is not important yet
 app_lucky_number:
-    path: /{name}{prename}
+    path: /
     controller: App\Controller\LuckyController::number
+    
+Admin:
+    path: /admin
+    controller: App\Controller\AdminController::admin   
+    
+    
+createxp:
+    path: /exp/create
+    controller: App\Controller\LuckyController::bd
+    
+createbd:
+    path: /bd/create
+    controller: App\Controller\FormController::create
+    
+editebd:
+    path: /bd/edit/{id}
+    controller: App\Controller\FormController::edit
+
+removebd:
+    path: /bd/remove/{id}
+    controller: App\Controller\FormController::remove
+    
+validbd:
+    path: /bd/valid
+    controller: App\Controller\FormController::valid
+    
