@@ -16,8 +16,8 @@ class LoisirsType extends AbstractType
             ->add('Title')
             ->add('year')
             ->add('apport')
-            ->add('save',SubmitType::class,[
-                'attr'=>['class'=>'save'],    
+            ->add('save', SubmitType::class, [
+                'attr'=>['class'=>'save'],
             ])
         ;
     }
