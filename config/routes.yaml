@@ -25,21 +25,20 @@ createxp:
     path: /exp/create
     controller: App\Controller\LuckyController::bd
     
-createbd:
+create_loisir:
     path: /bd/create
-    controller: App\Controller\FormController::create
+    controller: App\Controller\LoisirController::create
     
-editebd:
+edit_loisir:
     path: /bd/edit/{id}
-    controller: App\Controller\FormController::edit
+    controller: App\Controller\LoisirController::edit
 
-removebd:
+remove_loisir:
     path: /bd/remove/{id}
-    controller: App\Controller\FormController::remove
+    controller: App\Controller\LoisirController::remove
     
-validbd:
+valid_loisir:
     path: /bd/valid
-    controller: App\Controller\FormController::valid
+    controller: App\Controller\LoisirController::valid
     
-app_logout:
-    path: /logout
+

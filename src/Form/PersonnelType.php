@@ -2,26 +2,27 @@
 
 namespace App\Form;
 
-use App\Entity\Formation;
+use App\Entity\Personnel;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class FormationsType extends AbstractType
+class PersonnelType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('datedebut')
-            ->add('datefin')
+            ->add('nom')
+            ->add('prenom')
+            ->add('statut')
+            ->add('description')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Formation::class,
+            'data_class' => Personnel::class,
         ]);
     }
 }

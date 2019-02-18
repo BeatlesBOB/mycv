@@ -1,147 +1,211 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Joe Bloggs - Curriculum Vitae</title>
+	<meta charset="utf-8" />
+	<title>Responsive Resume</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<!--Custom fonts. To improve load times, remove this and update the h1 styling in style.css--> 
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css'>
+	<!-- stylesheets -->
+	<link type="text/css" rel="stylesheet" href="{{asset('style.css')}}">
+	
+	<!-- favicon -->
+	<link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
+	
+	<!-- just in case viewer is using Internet Explorer -->
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
-<meta name="viewport" content="width=device-width"/>
-<meta name="description" content="The Curriculum Vitae of Joe Bloggs."/>
-<meta charset="UTF-8"> 
-
-<link type="text/css" rel="stylesheet" href="{{ asset('style.css')}}">
-<link href='http://fonts.googleapis.com/css?family=Rokkitt:400,700|Lato:400,300' rel='stylesheet' type='text/css'>
-
-<!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
 </head>
-<body id="top">
-<div id="cv" class="instaFade">
-	<div class="mainDetails">
-		<div id="headshot" class="quickFade">
-			<img src="{{ asset('headshot.jpg')}}" alt="Alan Smith" />
-		</div>
+
+<body>
+	<!-- Header-->
+	<header>
+		<h1>{{personnel.getNom()}}  {{personnel.getPrenom()}}</h1>
+		<p>{{personnel.getStatut()}}
 		
-		<div id="name">
-			<h1 class="quickFade delayTwo">{{nom}}{{prenom}}</h1>
-			<h2 class="quickFade delayThree">Job Title {{number}}</h2>
-		</div>
+			{% if is_granted('ROLE_ADMIN') %}
+				 <a href="{{ path('personnel_edit',{ 'id':personnel.getId()} )}}" target="_blank">Edite</a>
+				 <a href="{{ path('personnel_delete',{ 'id':personnel.getId()} )}}" target="_blank">Remove</a>
+			{% endif %}
 		
-		<div id="contactDetails" class="quickFade delayFour">
-			<ul>
-				<li>e: <a href="mailto:joe@bloggs.com" target="_blank">joe@bloggs.com</a></li>
-				<li>w: <a href="http://www.bloggs.com">www.bloggs.com</a></li>
-				<li>m: 01234567890</li>
-			</ul>
-		</div>
-		<div class="clear"></div>
-	</div>
+		</p>
+			
+	</header>
 	
-	<div id="mainArea" class="quickFade delayFive">
-		<section>
-			<article>
-				<div class="sectionTitle">
-					<h1>Personal Profile</h1>
-				</div>
-				
-				<div class="sectionContent">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dolor metus, interdum at scelerisque in, porta at lacus. Maecenas dapibus luctus cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim. Vestibulum bibendum mattis dignissim. Proin id sapien quis libero interdum porttitor.</p>
-				</div>
-			</article>
-			<div class="clear"></div>
+	<div class="container">
+		
+		<!-- Introduction-->
+		<section class="center">
+			<h1>Welcome!</h1>
+			<p>
+				{{personnel.getDescription()}}
+			</p>
+		</section>
+		<hr>
+		
+		<!-- Gallery Block-->
+		<section class="gallery">
+			<h1 class="center">Gallery</h1>
+			<div class="row">
+				<a href="#"><img src="{{asset('img/re.png')}}" class="grid-2"></a>
+				<a href="#"><img src="{{asset('img/re.png')}}" class="grid-2"></a>
+				<a href="#"><img src="{{asset('img/re.png')}}" class="grid-2"></a>
+				<a href="#"><img src="{{asset('img/re.png')}}" class="grid-2"></a>
+				<a href="#"><img src="{{asset('img/re.png')}}" class="grid-2"></a>
+				<a href="#"><img src="{{asset('img/re.png')}}" class="grid-2"></a>
+			</div>
 		</section>
 		
+		<hr>
 		
-		<section>
-			<div class="sectionTitle">
-				<h1>Work Experience</h1>
+	</div> <!-- End container-->
+	
+	<!-- Spotlight -->
+	<section class="spotlight">
+		<div class="container">
+			<div class="row">
+				<div class="grid-3">
+					<img src="{{asset('img/spotlight.jpg')}}">
+				</div>
+				<div class="grid-3">
+					<h1>Project Spotlight</h1>
+					<p>Give a brief description of what this project is and what role you played. It can also be helpful to include a link</p>
+					<a href="#">View Project</a>
+				</div>
 			</div>
-			
-			<div class="sectionContent">
+		</div>
+	</section>
+	
+	
+	<!-- New container-->
+	<div class="container">
+		<!-- Testimonials-->	
+		<section class="testimonial">
+			<h1 class="center">Langues</h1>
+			<div class="row">
+				<div class="grid-2">
+					<img src="{{asset('img/re.png')}}">
+					<h2>{{personnel.getLangue()}}</h2>
+				</div>
 				
-				{% for experience in experiences %}
-                   	<article>
-                    	<h2>{{experience.getTitle()}}</h2>
-						{% if is_granted('ROLE_ADMIN') %}
-							 <a href="{{path('createbd')}}" target="_blank">Create</a>
-							 <a href="{{ path('editebd',{ 'id':experience.getId()} )}}" target="_blank">Edite</a>
-							 <a href="{{path('validbd')}}" target="_blank">Valide</a>
-							 <a href="{{ path('removebd',{ 'id':experience.getId()} )}}" target="_blank">Remove</a>
-						{% endif %}
-						 
-						<p class="subDetails">
-							{{ experience.getDatedebut()|date('Y-m-d') }}
-							{{ experience.getDatefin|date('Y-m-d') }}
-						</p>	
-                    </article>
+				<div class="grid-2">
+					<img src="{{asset('img/re.png')}}">
+					<h2>{{personnel.getLangue2()}}</h2>
+				</div>
+		
+				<div class="grid-2">
+					<img src="{{asset('img/re.png')}}">
+					<h2>{{personnel.getLangue3()}}</h2>
+				</div>
+			</div>
+		</section>
+	
+				<!--Loisirs Tables-->
+		<section class="experience">
+			<h1 class="center">Experiences Professionnel</h1>
+			<div class="center"> 
+				{% if is_granted('ROLE_ADMIN') %}
+					<a href="{{path('experience_new')}}" target="_blank">Create</a>
+				{% endif %}
+			</div>
+				{% for loisir in loisirs %}
+                	<div class="row">
+						<div class="grid-2">
+							<h2>{{loisir.getTitle()}}</h2>
+							<p>{{ loisir.getYear()|date('Y-m-d')}}</p>
+							{% if is_granted('ROLE_ADMIN') %}
+								 <a href="{{ path('loisirs_edit',{ 'id':loisir.getId()} )}}" target="_blank">Edite</a>
+								 <a href="{{ path('loisirs_delete',{ 'id':loisir.getId()} )}}" target="_blank">Remove</a>
+							{% endif %}
+						</div>
+						<div class="grid-4">
+							<ul>
+								<li>{{loisir.getApport()}}</li>
+							</ul>
+						</div>
+					</div>
                 {% endfor %}
-	
-			</div>
-			<div class="clear"></div>
 		</section>
 		
-		
-		<section>
-			<div class="sectionTitle">
-				<h1>Key Skills</h1>
-			</div>
+		<hr>
 			
-			<div class="sectionContent">
-				<ul class="keySkills">
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-					<li>A Key Skill</li>
-				</ul>
+		<!--Experience Tables-->
+		<section class="experience">
+			<h1 class="center">Experiences Professionnel</h1>
+			<div class="center"> 
+				{% if is_granted('ROLE_ADMIN') %}
+					<a href="{{path('experience_new')}}" target="_blank">Create</a>
+				{% endif %}
 			</div>
-			<div class="clear"></div>
+				{% for experience in experiences %}
+                	<div class="row">
+						<div class="grid-2">
+							<h2>{{experience.getTitle()}}</h2>
+							<p>{{ experience.getDatedebut()|date('Y-m-d') }} - 	{{ experience.getDatefin|date('Y-m-d') }}</p>
+							{% if is_granted('ROLE_ADMIN') %}
+							 	<a href="{{ path('experience_edit',{ 'id':experience.getId()} )}}" target="_blank">Edite</a>
+							 	<a href="{{ path('experience_delete',{ 'id':experience.getId()} )}}" target="_blank">Remove</a>
+							{% endif %}
+						</div>
+						<div class="grid-4">
+							<ul>
+								<li>{{experience.getApport()}}</li>
+							</ul>
+						</div>
+						<div class="grid-4">
+							<p>
+								{{experience.getDescription()}}
+							</p>
+						</div>
+						
+					</div>
+                {% endfor %}
 		</section>
 		
+		<hr>
 		
 		<section>
-			<div class="sectionTitle">
-				<h1>Education</h1>
-			</div>
-			
-			<div class="sectionContent">
-				<article>
-					<h2>College/University</h2>
-					<p class="subDetails">Qualification</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
-				</article>
+			<!--List of skills-->
+			<div class="row">
+				<div class="grid-2">
+					<h1>Skills</h1>
+					<ul>
+						<li>HTML</li>
+						<li>CSS</li>
+						<li>Javascript</li>
+						<li>Angular.js</li>
+						<li>Photoshop</li>
+						<li>Git</li>
+					</ul>
+				</div>
 				
-				<article>
-					<h2>College/University</h2>
-					<p class="subDetails">Qualification</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies massa et erat luctus hendrerit. Curabitur non consequat enim.</p>
-				</article>
+				<div class="grid-4">
+					<h1>In Conclusion</h1>
+					<p>
+						This is a good spot to highlight experiance and skills. Make sure to include a call to action like a link to your website, or your email address.
+						If you find bugs, want features, or have questions, feel free to submit an <a href="https://github.com/philipcdavis/responsive-resume/issues">issue</a>. You are free to use without attribution.
+						If you're ok sharing, I would love seeing what you make! Shoot me an
+						<a href="mailto:Phillysoul11@gmail.com?Subject=Responsive%20Resume" target="_top">email</a> or
+						<a href="http://www.twitter.com/philipcdavis">tweet</a> at me.
+					</p>
+					<ul>
+						<li>email: <a href="" target="_blank">  {{personnel.getMail()}}</a></li>
+						<li>website: <a href="http://www.bloggs.com"> {{personnel.getSite}}</a></li>
+						<li>mail:{{personnel.getTelephone()}}</li>
+					</ul>
+				</div>
 			</div>
-			<div class="clear"></div>
 		</section>
 		
 		
-		 
 		
-	</div>
-</div>
-
-
-
-
-
-
-
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-3753241-1");
-pageTracker._initData();
-pageTracker._trackPageview();
-</script>
+		<!--Footer-->
+		<footer class="center">
+			<hr>
+			<span>&copy; {{personnel.getNom()}}  {{personnel.getPrenom()}} 2018</span>
+		</footer>
+		
+	</div><!-- End Container -->
+	
 </body>
 </html>

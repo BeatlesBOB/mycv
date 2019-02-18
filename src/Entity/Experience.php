@@ -35,6 +35,16 @@ class Experience
      */
     private $datefin;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Description;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Apport;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -72,6 +82,30 @@ class Experience
     public function setDatefin(?\DateTimeInterface $datefin): self
     {
         $this->datefin = $datefin;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->Description;
+    }
+
+    public function setDescription(string $Description): self
+    {
+        $this->Description = $Description;
+
+        return $this;
+    }
+
+    public function getApport(): ?string
+    {
+        return $this->Apport;
+    }
+
+    public function setApport(string $Apport): self
+    {
+        $this->Apport = $Apport;
 
         return $this;
     }

@@ -5,7 +5,9 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Entity\Experience;
-
+use App\Entity\Loisirs;
+use App\Entity\Formation;
+use App\Entity\Personnel;
 // class LuckyController extends Controller
 // {
 //     public function number()
@@ -24,8 +26,16 @@ class LuckyController extends Controller
     public function number()
     {
         $number = random_int(0, 100);
-        $nom ='Allard';
-        $prenom ="Nathanael";
+        
+        $personnel = $this->getDoctrine()
+            ->getRepository(Personnel::class)->find(1);
+    
+        if (!$personnel) {
+            throw $this->createNotFoundException(
+                'No product found for id '
+            );
+        }
+        
       
         $experiences = $this->getDoctrine()
             ->getRepository(Experience::class)->findAll();
@@ -35,12 +45,30 @@ class LuckyController extends Controller
                 'No product found for id '
             );
         }
+        
+        $loisirs= $this->getDoctrine()
+            ->getRepository(Loisirs::class)->findAll();
+    
+        if (!$loisirs) {
+            throw $this->createNotFoundException(
+                'No product found for id '
+            );
+        }
+        
+        $formations= $this->getDoctrine()
+            ->getRepository(Formation::class)->findAll();
+    
+        if (!$formations) {
+            throw $this->createNotFoundException(
+                'No product found for id '
+            );
+        }
       
         return $this->render('sitepublic/mycv.html.twig', array(
             'number' => $number,
-            'nom' => $nom,
-            'prenom' => $prenom,
-            
+            'personnel' => $personnel,
+            'loisirs' => $loisirs,
+            'formations' => $formations,
             'experiences' => $experiences
         ));
     }

@@ -35,6 +35,11 @@ class Formation
      */
     private $datefin;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Description;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -72,6 +77,18 @@ class Formation
     public function setDatefin(?\DateTimeInterface $datefin): self
     {
         $this->datefin = $datefin;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->Description;
+    }
+
+    public function setDescription(string $Description): self
+    {
+        $this->Description = $Description;
 
         return $this;
     }
