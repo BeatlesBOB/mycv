@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Lv1{% endblock %}
+
+{% block body %}
+    <h1>Edit Lv1</h1>
+
+    {{ include('lv1/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('lv1_index') }}">back to list</a>
+
+    {{ include('lv1/_delete_form.html.twig') }}
+{% endblock %}

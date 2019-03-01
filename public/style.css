@@ -43,10 +43,25 @@ hr {
   margin-top: 3em;
   margin-bottom: 2em;
 }
+.element-item
+{
+  position: relative!important;
+}
 
+.button {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 header {
   background-color: #999;
-  background-image: url(img/background.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-background-size: cover;
@@ -66,8 +81,6 @@ header h1 {
   letter-spacing: 1px;
   opacity: 1;
   text-shadow: 0 3px 0 rgba(0,0,0, 0.5);
-  position: relative;
-  top: 370px;
   font-weight: 700;
 }
 
@@ -77,8 +90,6 @@ header p {
   padding-bottom: 1.3em;
   padding-top: .5em;
   opacity: .9;
-  position: relative;
-  top: 360px;
 }
 
 section h1 {
@@ -325,3 +336,16 @@ footer hr {
   
 }
 
+img#imgperso {
+    width: 25%;
+}
+
+.head
+{
+  margin-top: 100px;
+}
+
+.head2
+{
+  margin-top: 200px;
+}

@@ -53,25 +53,32 @@ class Personnel
      */
     private $site;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $Langue;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $langue2;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $langue3;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $conclusion;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Age;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Sex;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Adresse;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $photo;
 
 
     public function getId(): ?int
@@ -163,41 +170,6 @@ class Personnel
         return $this;
     }
 
-    public function getLangue(): ?string
-    {
-        return $this->Langue;
-    }
-
-    public function setLangue(string $Langue): self
-    {
-        $this->Langue = $Langue;
-
-        return $this;
-    }
-
-    public function getLangue2(): ?string
-    {
-        return $this->langue2;
-    }
-
-    public function setLangue2(string $langue2): self
-    {
-        $this->langue2 = $langue2;
-
-        return $this;
-    }
-
-    public function getLangue3(): ?string
-    {
-        return $this->langue3;
-    }
-
-    public function setLangue3(string $langue3): self
-    {
-        $this->langue3 = $langue3;
-
-        return $this;
-    }
 
     public function getConclusion(): ?string
     {
@@ -210,6 +182,56 @@ class Personnel
 
         return $this;
     }
+
+    public function getAge(): ?string
+    {
+        return $this->Age;
+    }
+
+    public function setAge(string $Age): self
+    {
+        $this->Age = $Age;
+
+        return $this;
+    }
+
+    public function getSex(): ?string
+    {
+        return $this->Sex;
+    }
+
+    public function setSex(string $Sex): self
+    {
+        $this->Sex = $Sex;
+
+        return $this;
+    }
+
+    public function getAdresse(): ?string
+    {
+        return $this->Adresse;
+    }
+
+    public function setAdresse(string $Adresse): self
+    {
+        $this->Adresse = $Adresse;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): self
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+
 
    
 }

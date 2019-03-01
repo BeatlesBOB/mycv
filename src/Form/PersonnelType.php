@@ -16,6 +16,14 @@ class PersonnelType extends AbstractType
             ->add('prenom')
             ->add('statut')
             ->add('description')
+            ->add('telephone')
+            ->add('mail')
+            ->add('site')
+            ->add('conclusion')
+            ->add('Age')
+            ->add('Sex')
+            ->add('Adresse')
+            ->add('photo')
         ;
     }
 

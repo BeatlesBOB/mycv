@@ -15,6 +15,8 @@ class ExperienceType extends AbstractType
             ->add('Title')
             ->add('datedebut')
             ->add('datefin')
+            ->add('Description')
+            ->add('Apport')
         ;
     }
 

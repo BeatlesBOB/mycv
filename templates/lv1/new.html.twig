@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Lv1{% endblock %}
+
+{% block body %}
+    <h1>Create new Lv1</h1>
+
+    {{ include('lv1/_form.html.twig') }}
+
+    <a href="{{ path('lv1_index') }}">back to list</a>
+{% endblock %}

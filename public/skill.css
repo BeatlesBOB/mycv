@@ -1,0 +1,66 @@
+
+
+.skill-container {
+	max-width: 200px;
+	background: #F9F9F9;
+	margin: auto;
+}
+.skill-title {
+	font-size: 20px;
+	font-weight: 300;
+	text-align: center;
+	letter-spacing: 0.2em;
+
+	padding: 60px;
+	background: #F9F9F9;
+	border-bottom: 1px solid #EEE;
+	margin-bottom: 30px;
+}
+.skill-unit {
+	width: 200px;
+	height: auto;
+	display: block;
+	background: #FFF;
+	padding: 0 0 0 20px;
+}
+.skill-lable {
+	font-size: 14px;
+	letter-spacing: 0.1em;
+	display: block;
+	padding: 0 0 10px 0;
+}
+.skill-icon { font-size: 0; }
+/* font-size: 0; is required for 
+removing the white space in the 
+sapn-icon break point */
+.skill-icon span {
+	width: 8px;
+	height: 8px;
+	display: block;
+	background: #f44336;;
+	border: 1px solid #FFF;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0 6px 30px 0;
+}
+.skill-icon span:after {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	border: 1px solid #f44336;
+	border-radius: 50%;
+	margin: -2px 0 0 -5px;
+}
+
+.skill-0 span:nth-child(n+1) { background: #FFF; }
+.skill-1 span:nth-child(n+2) { background: #FFF; }
+.skill-2 span:nth-child(n+3) { background: #FFF; }
+.skill-3 span:nth-child(n+4) { background: #FFF; }
+.skill-4 span:nth-child(n+5) { background: #FFF; }
+.skill-5 span:nth-child(n+6) { background: #FFF; }
+.skill-6 span:nth-child(n+7) { background: #FFF; }
+.skill-7 span:nth-child(n+8) { background: #FFF; }
+.skill-8 span:nth-child(n+9) { background: #FFF; }
+.skill-9 span:nth-child(n+10) { background: #FFF; }
+.skill-10 span:nth-child(n+11) { background: #FFF; }

@@ -2,15 +2,27 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>Responsive Resume</title>
+	<title>CV {{personnel.getPrenom()}}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<!--Custom fonts. To improve load times, remove this and update the h1 styling in style.css--> 
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,700' rel='stylesheet' type='text/css'>
 	<!-- stylesheets -->
 	<link type="text/css" rel="stylesheet" href="{{asset('style.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{asset('skill.css')}}">
 	
+	
+	<link type="text/css" rel="stylesheet" href="{{asset('menu.css')}}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
 	<!-- favicon -->
-	<link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
+	<link rel="shortcut icon" href="{{asset('img/fav.png')}}">
+	<!-- Isotop -->
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+	
+	<!-- Scroll -->
+	<script src="{{asset('js/scroll.js')}}"></script>
 	
 	<!-- just in case viewer is using Internet Explorer -->
 	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -20,23 +32,46 @@
 <body>
 	<!-- Header-->
 	<header>
-		<h1>{{personnel.getNom()}}  {{personnel.getPrenom()}}</h1>
-		<p>{{personnel.getStatut()}}
-		
+		<div class="container">
+			<div class="row">
+				<div class="grid-3 head">
+					<img id="imgperso" src="{{asset(personnel.getPhoto())}}">
+					<h1>{{personnel.getNom()}}  {{personnel.getPrenom()}}</h1>
+					<p>{{personnel.getStatut()}}</p>
+				</div>
+				<div class="grid-3 head2">
+					<nav class="menu">
+					   <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+					   <label class="menu-open-button" for="menu-open">
+					    <span class="lines line-1"></span>
+					    <span class="lines line-2"></span>
+					    <span class="lines line-3"></span>
+					  </label>
+					   <a href="#contact" class="menu-item red"> <i class="fas fa-address-card"></i> </a>
+					   <a href="#Creation" class="menu-item red"> <i class="fab fa-creative-commons-remix"></i> </a>
+					   <a href="#Competence" class="menu-item red"> <i class="fas fa-brain"></i> </a>
+					   <a href="#Langue" class="menu-item red"> <i class="fas fa-language"></i> </a>
+					   <a href="#Experience" class="menu-item red"> <i class="fas fa-briefcase"></i> </a>
+					   <a href="#Loisir" class="menu-item red"> <i class="fas fa-skiing"></i> </a>
+					</nav>
+				</div>
+			</div>
+		</div>	
 			{% if is_granted('ROLE_ADMIN') %}
-				 <a href="{{ path('personnel_edit',{ 'id':personnel.getId()} )}}" target="_blank">Edite</a>
-				 <a href="{{ path('personnel_delete',{ 'id':personnel.getId()} )}}" target="_blank">Remove</a>
+				 <a class="button"href="{{ path('personnel_edit',{ 'id':personnel.getId()} )}}" target="_blank">Edite</a>
+				 <a class="button"href="{{ path('personnel_delete',{ 'id':personnel.getId()} )}}" target="_blank">Remove</a>
 			{% endif %}
 		
-		</p>
 			
 	</header>
 	
 	<div class="container">
 		
 		<!-- Introduction-->
-		<section class="center">
+		<section class="center" id="Accueil">
 			<h1>Welcome!</h1>
+			<a class='button' href='{{path('Admin')}}' target='_blank'>Se connecter</a>
+			<a class='button' href='{{path('create_message')}}' target='_blank'>Me contacter</a>
 			<p>
 				{{personnel.getDescription()}}
 			</p>
@@ -44,15 +79,22 @@
 		<hr>
 		
 		<!-- Gallery Block-->
-		<section class="gallery">
+		<section class="gallery" id="Creation">
 			<h1 class="center">Gallery</h1>
 			<div class="row">
-				<a href="#"><img src="{{asset('img/re.png')}}" class="grid-2"></a>
-				<a href="#"><img src="{{asset('img/re.png')}}" class="grid-2"></a>
-				<a href="#"><img src="{{asset('img/re.png')}}" class="grid-2"></a>
-				<a href="#"><img src="{{asset('img/re.png')}}" class="grid-2"></a>
-				<a href="#"><img src="{{asset('img/re.png')}}" class="grid-2"></a>
-				<a href="#"><img src="{{asset('img/re.png')}}" class="grid-2"></a>
+              <div class="button-group filter-button-group col-12 text-center center">
+                <button data-filter="*" class="button">show all</button>
+                <button data-filter=".affiche" class="button">Affiche</button>
+                <button data-filter=".illustration" class="button">Illustration</button>
+                <button data-filter=".video" class="button">Video</button>
+              </div>
+			<div class="row isotope">
+				<a class="element-item illustration" href="#"><img src="{{asset('img/livre.PNG')}}" class="grid-2"></a>
+				<a class="element-item video"href="#"><img src="{{asset('img/delicieux.PNG')}}" class="grid-2"></a>
+				<a class="element-item video"href="#"><img src="{{asset('img/Capture.PNG')}}" class="grid-2"></a>
+				<a class="element-item video"href="#"><img src="{{asset('img/Afficherevez.jpg')}}" class="grid-2"></a>
+				<a class="element-item affiche"href="#"><img src="{{asset('img/Afficheelephant.jpg')}}" class="grid-2"></a>
+				<a class="element-item video"href="#"><img src="{{asset('img/AfficheAutre.jpg')}}" class="grid-2"></a>
 			</div>
 		</section>
 		
@@ -65,11 +107,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="grid-3">
-					<img src="{{asset('img/spotlight.jpg')}}">
+					<img src="{{asset(realisations.getUrl())}}">
 				</div>
 				<div class="grid-3">
-					<h1>Project Spotlight</h1>
-					<p>Give a brief description of what this project is and what role you played. It can also be helpful to include a link</p>
+					<h1>Project Spotlight : {{realisations.getTitle}}</h1>
+					<p>{{realisations.getDescription}}</p>
 					<a href="#">View Project</a>
 				</div>
 			</div>
@@ -80,42 +122,131 @@
 	<!-- New container-->
 	<div class="container">
 		<!-- Testimonials-->	
-		<section class="testimonial">
+		<section class="testimonial" id="Langue">
 			<h1 class="center">Langues</h1>
 			<div class="row">
-				<div class="grid-2">
-					<img src="{{asset('img/re.png')}}">
-					<h2>{{personnel.getLangue()}}</h2>
-				</div>
 				
-				<div class="grid-2">
-					<img src="{{asset('img/re.png')}}">
-					<h2>{{personnel.getLangue2()}}</h2>
-				</div>
-		
-				<div class="grid-2">
-					<img src="{{asset('img/re.png')}}">
-					<h2>{{personnel.getLangue3()}}</h2>
-				</div>
+				
+				<div class="skill-container">
+				
+				  <div class="skill-unit">
+				      <div class="skill-lable">
+				      		{{lv1.getTitle()}}
+				      		{% if is_granted('ROLE_ADMIN') %}
+								 <ul>
+								 	<li>
+								 		<a class="button"href="{{ path('lv1_edit',{ 'id':lv1.getId()} )}}" target="_blank">Edite</a>
+								 	</li>
+								 	<li>
+								 		<a class="button"href="{{ path('lv1_delete',{ 'id':lv1.getId()} )}}" target="_blank">Remove</a>
+								 	</li>
+								 </ul>
+							{% endif %}
+				      </div>
+				      	<div class="skill-icon skill-{{lv1.getNiveau()}}">
+				      		<span></span><span></span><span></span><span></span><span></span>
+				      		<span></span><span></span><span></span><span></span><span></span>
+				      	</div><!--Skill-Icon-->
+				  </div><!--END-Skill-Unit-->
+				  
+				  <div class="skill-unit">
+				      <div class="skill-lable">
+				      	{{lv2.getTitle()}}
+				      		{% if is_granted('ROLE_ADMIN') %}
+								 <ul>
+								 	<li>
+								 		<a class="button"href="{{ path('lv2_edit',{ 'id':lv2.getId()} )}}" target="_blank">Edite</a>
+								 	</li>
+								 	<li>
+								 		<a class="button"href="{{ path('lv2_delete',{ 'id':lv2.getId()} )}}" target="_blank">Remove</a>
+								 	</li>
+								 </ul>
+							{% endif %}
+				      </div>
+				      	<div class="skill-icon skill-{{lv2.getNiveau()}}">
+				      		<span></span><span></span><span></span><span></span><span></span>
+				      		<span></span><span></span><span></span><span></span><span></span>
+				      	</div><!--Skill-Icon-->
+				  </div><!--END-Skill-Unit-->
+				  
+				  <div class="skill-unit">
+				      <div class="skill-lable">
+				      	{{lv3.getTitle()}}
+				      		{% if is_granted('ROLE_ADMIN') %}
+								 <ul>
+								 	<li>
+								 		<a class="button"href="{{ path('lv3_edit',{ 'id':lv3.getId()} )}}" target="_blank">Edite</a>
+								 	</li>
+								 	<li>
+								 		<a class="button"href="{{ path('lv3_delete',{ 'id':lv3.getId()} )}}" target="_blank">Remove</a>
+								 	</li>
+								 </ul>
+							{% endif %}
+				      </div>
+				      	<div class="skill-icon skill-{{lv3.getNiveau()}}">
+				      		<span></span><span></span><span></span><span></span><span></span>
+				      		<span></span><span></span><span></span><span></span><span></span>
+				      	</div><!--Skill-Icon-->
+				  </div><!--END-Skill-Unit-->
+				 
 			</div>
 		</section>
 	
-				<!--Loisirs Tables-->
-		<section class="experience">
+			
+		
+		<hr>
+			
+		<!--Experience Tables-->
+		<section class="experience" id="Experience">
 			<h1 class="center">Experiences Professionnel</h1>
 			<div class="center"> 
 				{% if is_granted('ROLE_ADMIN') %}
-					<a href="{{path('experience_new')}}" target="_blank">Create</a>
+					<a class="button" href="{{path('experience_new')}}" target="_blank">Create</a>
+				{% endif %}
+			</div>
+				{% for experience in experiences %}
+                	<div class="row">
+						<div class="grid-2">
+							<h2>{{experience.getTitle()}}</h2>
+							<p>{{ experience.getDatedebut()|date('d-m-Y') }} - 	{{ experience.getDatefin|date('d-m-Y') }}</p>
+							{% if is_granted('ROLE_ADMIN') %}
+							 	<a class="button"href="{{ path('experience_edit',{ 'id':experience.getId()} )}}" target="_blank">Edite</a>
+							 	<a class="button"href="{{ path('experience_delete',{ 'id':experience.getId()} )}}" target="_blank">Remove</a>
+							{% endif %}
+						</div>
+						<div class="grid-4">
+							<ul>
+								<li>Description :	{{experience.getDescription()}}</li>
+								
+							</ul>
+						</div>
+						<div class="grid-4">
+								<ul>
+									<li>Apport : {{experience.getApport()}}</li>
+								</ul>
+						</div>
+						
+					</div>
+                {% endfor %}
+		</section>
+		
+		<hr>
+			<!--Loisirs Tables-->
+		<section class="experience" id="Loisir">
+			<h1 class="center">Loisirs</h1>
+			<div class="center"> 
+				{% if is_granted('ROLE_ADMIN') %}
+					<a class="button" href="{{path('experience_new')}}" target="_blank">Create</a>
 				{% endif %}
 			</div>
 				{% for loisir in loisirs %}
                 	<div class="row">
 						<div class="grid-2">
 							<h2>{{loisir.getTitle()}}</h2>
-							<p>{{ loisir.getYear()|date('Y-m-d')}}</p>
+							<p>{{ loisir.getYear()|date('d-m-Y')}}</p>
 							{% if is_granted('ROLE_ADMIN') %}
-								 <a href="{{ path('loisirs_edit',{ 'id':loisir.getId()} )}}" target="_blank">Edite</a>
-								 <a href="{{ path('loisirs_delete',{ 'id':loisir.getId()} )}}" target="_blank">Remove</a>
+								 <a class="button"href="{{ path('loisirs_edit',{ 'id':loisir.getId()} )}}" target="_blank">Edite</a>
+								 <a class="button"href="{{ path('loisirs_delete',{ 'id':loisir.getId()} )}}" target="_blank">Remove</a>
 							{% endif %}
 						</div>
 						<div class="grid-4">
@@ -128,65 +259,35 @@
 		</section>
 		
 		<hr>
-			
-		<!--Experience Tables-->
-		<section class="experience">
-			<h1 class="center">Experiences Professionnel</h1>
-			<div class="center"> 
-				{% if is_granted('ROLE_ADMIN') %}
-					<a href="{{path('experience_new')}}" target="_blank">Create</a>
-				{% endif %}
-			</div>
-				{% for experience in experiences %}
-                	<div class="row">
-						<div class="grid-2">
-							<h2>{{experience.getTitle()}}</h2>
-							<p>{{ experience.getDatedebut()|date('Y-m-d') }} - 	{{ experience.getDatefin|date('Y-m-d') }}</p>
-							{% if is_granted('ROLE_ADMIN') %}
-							 	<a href="{{ path('experience_edit',{ 'id':experience.getId()} )}}" target="_blank">Edite</a>
-							 	<a href="{{ path('experience_delete',{ 'id':experience.getId()} )}}" target="_blank">Remove</a>
-							{% endif %}
-						</div>
-						<div class="grid-4">
-							<ul>
-								<li>{{experience.getApport()}}</li>
-							</ul>
-						</div>
-						<div class="grid-4">
-							<p>
-								{{experience.getDescription()}}
-							</p>
-						</div>
-						
-					</div>
-                {% endfor %}
-		</section>
 		
-		<hr>
-		
-		<section>
+		<section id="Competence">
 			<!--List of skills-->
 			<div class="row">
 				<div class="grid-2">
 					<h1>Skills</h1>
+					{% if is_granted('ROLE_ADMIN') %}
+						<a class="button"href="{{path('competences_new')}}" target="_blank">Create</a>
+					{% endif %}
 					<ul>
-						<li>HTML</li>
-						<li>CSS</li>
-						<li>Javascript</li>
-						<li>Angular.js</li>
-						<li>Photoshop</li>
-						<li>Git</li>
+						{% for competence in competences %}
+			               	<li>
+			               		{{competence.getTitle()}}
+			               	</li>
+			               	<li>
+			               		{% if is_granted('ROLE_ADMIN') %}
+							 		<a class="button" href="{{ path('competences_edit',{ 'id':competence.getId()} )}}" target="_blank">Edite</a>
+							 		<a class="button" href="{{ path('competences_delete',{ 'id':competence.getId()} )}}" target="_blank">Remove</a>
+								{% endif %}
+			               	</li>
+		                {% endfor %}
+						
 					</ul>
 				</div>
 				
 				<div class="grid-4">
 					<h1>In Conclusion</h1>
 					<p>
-						This is a good spot to highlight experiance and skills. Make sure to include a call to action like a link to your website, or your email address.
-						If you find bugs, want features, or have questions, feel free to submit an <a href="https://github.com/philipcdavis/responsive-resume/issues">issue</a>. You are free to use without attribution.
-						If you're ok sharing, I would love seeing what you make! Shoot me an
-						<a href="mailto:Phillysoul11@gmail.com?Subject=Responsive%20Resume" target="_top">email</a> or
-						<a href="http://www.twitter.com/philipcdavis">tweet</a> at me.
+						{{personnel.getConclusion()}}
 					</p>
 					<ul>
 						<li>email: <a href="" target="_blank">  {{personnel.getMail()}}</a></li>
@@ -196,9 +297,7 @@
 				</div>
 			</div>
 		</section>
-		
-		
-		
+	
 		<!--Footer-->
 		<footer class="center">
 			<hr>
@@ -206,6 +305,17 @@
 		</footer>
 		
 	</div><!-- End Container -->
-	
+	<script>
+		// init Isotope
+			var $grid = $('.isotope').isotope({
+			  // options
+			});
+			// filter items on button click
+			$('.filter-button-group').on( 'click', 'button', function() {
+			  var filterValue = $(this).attr('data-filter');
+			  $grid.isotope({ filter: filterValue });
+			  	
+			});
+	</script>
 </body>
 </html>

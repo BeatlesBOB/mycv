@@ -11,7 +11,6 @@ class AdminController extends AbstractController
 {
     public function admin()
     {
-        return new Response('<html><body><p>Admin page!</p>
-        </body></html>');
+        return $this->render('admin/index.html.twig');
     }
 }

@@ -2,28 +2,25 @@
 
 namespace App\Form;
 
-use App\Entity\Formation;
+use App\Entity\Lv3;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-
-class FormationType extends AbstractType
+class Lv3Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('datedebut')
-            ->add('datefin')
-            ->add('Description')
+            ->add('Title')
+            ->add('niveau')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Formation::class,
+            'data_class' => Lv3::class,
         ]);
     }
 }

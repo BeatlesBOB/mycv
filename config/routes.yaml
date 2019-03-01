@@ -42,3 +42,10 @@ valid_loisir:
     controller: App\Controller\LoisirController::valid
     
 
+create_message:
+    path: /contact
+    controller: App\Controller\ContactController::create
+    
+valid_message:
+    path: /contact/valid
+    controller: App\Controller\ContactController::valid

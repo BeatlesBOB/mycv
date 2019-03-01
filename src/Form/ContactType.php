@@ -1,29 +1,30 @@
 <?php
-
 namespace App\Form;
-
-use App\Entity\Formation;
+use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-
-class FormationType extends AbstractType
+class ContactType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('datedebut')
-            ->add('datefin')
-            ->add('Description')
+            ->add('nom')
+            ->add('prenom')
+            ->add('mail')
+            ->add('sujet')
+            ->add('message')
+            ->add('save', SubmitType::class, [
+                'attr' => ['class' => 'save'],
+            ])
         ;
     }
-
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Formation::class,
+            'data_class' => Contact::class,
         ]);
     }
 }

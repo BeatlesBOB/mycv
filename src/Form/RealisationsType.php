@@ -2,28 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\Formation;
+use App\Entity\Realisations;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-
-class FormationType extends AbstractType
+class RealisationsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('datedebut')
-            ->add('datefin')
+            ->add('Title')
             ->add('Description')
+            ->add('Url')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Formation::class,
+            'data_class' => Realisations::class,
         ]);
     }
 }

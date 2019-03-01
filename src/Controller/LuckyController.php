@@ -8,6 +8,13 @@ use App\Entity\Experience;
 use App\Entity\Loisirs;
 use App\Entity\Formation;
 use App\Entity\Personnel;
+use App\Entity\Competences;
+use App\Entity\Realisations;
+use App\Entity\Lv1;
+use App\Entity\Lv2;
+use App\Entity\Lv3;
+
+
 // class LuckyController extends Controller
 // {
 //     public function number()
@@ -25,12 +32,58 @@ class LuckyController extends Controller
 {
     public function number()
     {
-        $number = random_int(0, 100);
+        
+        $number = rand(1, 6);
         
         $personnel = $this->getDoctrine()
             ->getRepository(Personnel::class)->find(1);
     
         if (!$personnel) {
+            throw $this->createNotFoundException(
+                'No product found for id '
+            );
+        }
+        
+        $lv1 = $this->getDoctrine()
+            ->getRepository(Lv1::class)->find(1);
+    
+        if (!$lv1) {
+            throw $this->createNotFoundException(
+                'No product found for id '
+            );
+        }
+        
+         $lv2 = $this->getDoctrine()
+            ->getRepository(Lv2::class)->find(1);
+    
+        if (!$lv2) {
+            throw $this->createNotFoundException(
+                'No product found for id '
+            );
+        }
+        
+         $lv3 = $this->getDoctrine()
+            ->getRepository(Lv3::class)->find(1);
+    
+        if (!$lv3) {
+            throw $this->createNotFoundException(
+                'No product found for id '
+            );
+        }
+        
+        $realisations = $this->getDoctrine()
+            ->getRepository(Realisations::class)->find($number);
+    
+        if (!$realisations) {
+            throw $this->createNotFoundException(
+                'No product found for id '
+            );
+        }
+        
+        $competences = $this->getDoctrine()
+            ->getRepository(Competences::class)->findAll();
+    
+        if (!$competences) {
             throw $this->createNotFoundException(
                 'No product found for id '
             );
@@ -63,13 +116,20 @@ class LuckyController extends Controller
                 'No product found for id '
             );
         }
+        
+        
       
         return $this->render('sitepublic/mycv.html.twig', array(
-            'number' => $number,
+            
             'personnel' => $personnel,
             'loisirs' => $loisirs,
             'formations' => $formations,
-            'experiences' => $experiences
+            'experiences' => $experiences,
+            'competences' => $competences,
+            'realisations' => $realisations,
+            'lv1' => $lv1,
+            'lv2' => $lv2,
+            'lv3' => $lv3,
         ));
     }
 
