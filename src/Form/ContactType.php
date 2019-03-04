@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Form;
+
 use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,6 +23,7 @@ class ContactType extends AbstractType
             ])
         ;
     }
+
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([

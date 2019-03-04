@@ -33,6 +33,10 @@ ul
 {
   list-style-type : none;
 }
+li
+{
+  margin: 20px;
+}
 img {
   max-width: 100%;
 }
@@ -49,16 +53,13 @@ hr {
 }
 
 .button {
-  background-color: #f44336;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
+    background-color: transparent;
+    border: 3px solid #e4382c;
+    padding: 7px 35px;
+    border-radius: 3px;
+    color: #e4382c;
+    font-size: 1.1em;
+    margin-bottom: 10px;
 }
 header {
   background-color: #999;
@@ -345,7 +346,11 @@ img#imgperso {
   margin-top: 100px;
 }
 
-.head2
-{
-  margin-top: 200px;
+
+
+@media screen and (min-width: 640px) {
+  .head2
+  {
+    margin-top: 200px;
+  }
 }

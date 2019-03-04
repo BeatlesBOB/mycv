@@ -53,8 +53,6 @@ class Personnel
      */
     private $site;
 
-
-
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -79,7 +77,6 @@ class Personnel
      * @ORM\Column(type="string", length=255)
      */
     private $photo;
-
 
     public function getId(): ?int
     {
@@ -170,7 +167,6 @@ class Personnel
         return $this;
     }
 
-
     public function getConclusion(): ?string
     {
         return $this->conclusion;
@@ -230,8 +226,4 @@ class Personnel
 
         return $this;
     }
-
-
-
-   
 }
