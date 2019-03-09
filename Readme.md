@@ -5,12 +5,12 @@ J'ai voulus crée ce Cv dans le but qu'il soit le plus modifiable possible, afin
 
 ## Fonctionalités majeurs:
 
-* Tout le contenu texte est modifiable: une fois connecté en tant qu'administrateur vous avez accès a des bouton de modification / création / supression. ![Alt text](/my_cv/readimg/admin.PNG?raw=true "Modification")
+* Tout le contenu texte est modifiable: une fois connecté en tant qu'administrateur vous avez accès a des bouton de modification / création / supression. ![Alt text](/my_cv/readimg/admin.PNG "Modification")
 * Pour la photo de l'utilisateur, ainsi que les photo de la catagorie spotlight, les liens des photos sont enregistrer en base de donné et sont donc directement modifable vien le lien.
-* La catégorie spotlight mais en avant des réalisation de manière aléatoire. ![Alt text](/my_cv/readimg/spot.PNG?raw=true "Mise en avant")
-* La modification de votre niveau en langue modifie la classe Css et met a jour directement le nombre de point colorié. ![Alt text](/my_cv/readimg/lang.PNG?raw=true "Langues")
+* La catégorie spotlight mais en avant des réalisation de manière aléatoire. ![Alt text](/my_cv/readimg/spot.PNG"Mise en avant")
+* La modification de votre niveau en langue modifie la classe Css et met a jour directement le nombre de point colorié. ![Alt text](/my_cv/readimg/lang.PNG "Langues")
 * Le menu renvoie a des encre sur le site et le scroll ce fait a travers une fonction javascript afin d'etre plus fluide.
-* Les réalisation sont gérés dans un Isotope, soit il est possible au visiteur de trié les créations a l'aide des bouton. ![Alt text](/my_cv/readimg/tri.PNG?raw=true "Tri")
+* Les réalisation sont gérés dans un Isotope, soit il est possible au visiteur de trié les créations a l'aide des bouton. ![Alt text](/my_cv/readimg/tri.PNG "Tri")
 * Il y a deux test , un test unitaire qui test si la class et l'Entity Experience fonctionne, et un texte fonctionnel si la base renvoie bien le nom de l'Entity personne.
 * L'annotion @ApiResource est présente sour chaque entité.
 * Le formulaire de contact enregistre les données sur la base de donnée.
@@ -25,7 +25,7 @@ J'ai voulus crée ce Cv dans le but qu'il soit le plus modifiable possible, afin
 
 Afin de se connecter au CV le lien est le [suivant](https://symphony-allardnathanael.c9users.io/my_cv/public/index.php/)
 
-##Pour acceder a Symphony dans le projet 
+## Pour acceder a Symphony dans le projet 
 
 ```
 cd my_cv
@@ -37,14 +37,14 @@ Puis les commandes sont accessible via la commande
 ```
 ## Les tests
 
-###Ce test vérifie si l'Entity Experience fonctionne et ajoute bien les titre grace au fonction SetTitle
+### Ce test vérifie si l'Entity Experience fonctionne et ajoute bien les titre grace au fonction SetTitle
 
 ```
  php vendor/bin/codecept run unit ExampleTest
 ```
 -------------------------------------------------------------------------------------------
 
-###Ce test vérifie si il trouve mon nom et prénom Dans la page principale du CV
+### Ce test vérifie si il trouve mon nom et prénom Dans la page principale du CV
 
 ```
  php vendor/bin/codecept run acceptance SigninCest
@@ -52,10 +52,10 @@ Puis les commandes sont accessible via la commande
 ## Admin
 
 Appuyer sur le bouton ce connecter
-Identifiant :  admin
-Mot de passe : moi
+* Identifiant :  admin
+* Mot de passe : moi
 
-![Alt text](/my_cv/readimg/co.PNG?raw=true "Connection")
+![Alt text](/my_cv/readimg/co.PNG "Connection")
 
 ## Auteur
 
