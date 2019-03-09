@@ -12,6 +12,6 @@ class SigninCest
     {
         $I->wantTo('test my page CV');
         $I->amOnPage('/');
-        $I->see('AllardNathanael');
+        $I->see('Allard Nathanael');
     }
 }

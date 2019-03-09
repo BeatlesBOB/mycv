@@ -11,11 +11,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
+ * 
  * @Route("/competences")
  */
 class CompetencesController extends Controller
 {
     /**
+     * 
      * @Route("/", name="competences_index", methods={"GET"})
      */
     public function index(CompetencesRepository $competencesRepository): Response

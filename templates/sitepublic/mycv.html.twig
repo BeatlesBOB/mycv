@@ -69,9 +69,10 @@
 		
 		<!-- Introduction-->
 		<section class="center" id="Accueil">
-			<h1>Welcome!</h1>
+			<h1>Bienvenue !</h1>
 			<a class='button' href='{{path('Admin')}}' target='_blank'>Se connecter</a>
 			<a class='button' href='{{path('create_message')}}' target='_blank'>Me contacter</a>
+			</hr>
 			<p>
 				{{personnel.getDescription()}}
 			</p>
@@ -110,7 +111,7 @@
 					<img src="{{asset(realisations.getUrl())}}">
 				</div>
 				<div class="grid-3">
-					<h1>Project Spotlight : {{realisations.getTitle}}</h1>
+					<h1>Projet mit en avant : {{realisations.getTitle}}</h1>
 					<p>{{realisations.getDescription}}</p>
 					<a href="#">View Project</a>
 				</div>
@@ -276,7 +277,7 @@
 			<!--List of skills-->
 			<div class="row">
 				<div class="grid-2">
-					<h1>Skills</h1>
+					<h1>Compétences</h1>
 					{% if is_granted('ROLE_ADMIN') %}
 						<a class="button"href="{{path('competences_new')}}" target="_blank">Create</a>
 					{% endif %}
@@ -303,14 +304,14 @@
 				</div>
 				
 				<div class="grid-4">
-					<h1>In Conclusion</h1>
+					<h1>Conclusion</h1>
 					<p>
 						{{personnel.getConclusion()}}
 					</p>
 					<ul>
-						<li>email: <a href="" target="_blank">  {{personnel.getMail()}}</a></li>
-						<li>website: <a href="http://www.bloggs.com"> {{personnel.getSite}}</a></li>
-						<li>mail:{{personnel.getTelephone()}}</li>
+						<li>Email: <a href="" target="_blank">  {{personnel.getMail()}}</a></li>
+						<li>Website: <a href="http://www.bloggs.com"> {{personnel.getSite}}</a></li>
+						<li>Téléphone:{{personnel.getTelephone()}}</li>
 					</ul>
 				</div>
 			</div>
