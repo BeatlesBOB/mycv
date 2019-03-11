@@ -71,7 +71,7 @@ Appuyer sur le bouton se connecter
 * Les langues en lignes
 * Une section compétences plus complètes avec des graphiques
 
-### Amélioration techinque
+### Amélioration technique
 
 * Mot de passe et login en base de donnée
 * Les images directement modifable ( si possible ) sans passé par le projet symphony
