@@ -303,6 +303,10 @@ footer hr {
 .spotlight h1 {
   color: #e4382c;
 }
+.margep
+{
+  margin: 20px;
+}
 
 .spotlight p {
   color: #6d5e53;
