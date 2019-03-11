@@ -1,34 +1,23 @@
 
 
 .skill-container {
-	max-width: 200px;
-	background: #F9F9F9;
 	margin: auto;
 }
 .skill-title {
 	font-size: 20px;
 	font-weight: 300;
 	text-align: center;
-	letter-spacing: 0.2em;
-
 	padding: 60px;
 	background: #F9F9F9;
 	border-bottom: 1px solid #EEE;
 	margin-bottom: 30px;
 }
 .skill-unit {
-	width: 200px;
 	height: auto;
 	display: block;
-	background: #FFF;
 	padding: 0 0 0 20px;
 }
-.skill-lable {
-	font-size: 14px;
-	letter-spacing: 0.1em;
-	display: block;
-	padding: 0 0 10px 0;
-}
+
 .skill-icon { font-size: 0; }
 /* font-size: 0; is required for 
 removing the white space in the 
@@ -37,7 +26,7 @@ sapn-icon break point */
 	width: 8px;
 	height: 8px;
 	display: block;
-	background: #f44336;;
+	background: #948a64;
 	border: 1px solid #FFF;
 	border-radius: 50%;
 	display: inline-block;
@@ -48,7 +37,7 @@ sapn-icon break point */
 	position: absolute;
 	width: 10px;
 	height: 10px;
-	border: 1px solid #f44336;
+	border: 1px solid  #948a64;
 	border-radius: 50%;
 	margin: -2px 0 0 -5px;
 }

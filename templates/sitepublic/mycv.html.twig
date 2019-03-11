@@ -37,9 +37,9 @@
 				<div class="grid-3 head">
 					<img id="imgperso" src="{{asset(personnel.getPhoto())}}">
 					<h1>{{personnel.getNom()}}  {{personnel.getPrenom()}}</h1>
-					<p>{{personnel.getStatut()}}</p>
-					<h2>{{personnel.getSex()}}</h2>
-					<h2>{{personnel.getAge()}} ans</h2>
+					<h2 class="white">{{personnel.getStatut()}}</h2>
+					<h2 class="white">{{personnel.getSex()}}</h2>
+					<h2 class="white">{{personnel.getAge()}} ans</h2>
 					
 				</div>
 				<div class="grid-3 head2">
@@ -59,37 +59,63 @@
 					</nav>
 				</div>
 			</div>
+		</div>
+		<div class="row">
+			<div class="margep">
+				{% if is_granted('ROLE_ADMIN') %}
+				<div class="row">
+					<div class="grid-3 margep">
+						<a class="btnheader "href="{{ path('personnel_edit',{ 'id':personnel.getId()} )}}" target="_blank"><i class="fas fa-edit"></i><span class="ctrl">Edit</span></a>
+					</div>
+					<div class="grid-3 margep">
+					 	<a class="btnheader"href="{{ path('personnel_delete',{ 'id':personnel.getId()} )}}" target="_blank"><i class="fas fa-eraser"></i><span class="ctrl">Remove</span></a>
+					</div>
+				</div>
+				{% endif %}
+			</div>
 		</div>	
-			{% if is_granted('ROLE_ADMIN') %}
-				 <a class="button"href="{{ path('personnel_edit',{ 'id':personnel.getId()} )}}" target="_blank">Edite</a>
-				 <a class="button"href="{{ path('personnel_delete',{ 'id':personnel.getId()} )}}" target="_blank">Remove</a>
-			{% endif %}
+			<div class="margep">
+				<div class="row">
+					<div class="grid-3 margep">
+						<a class='btnheader' href='{{path('Admin')}}' target='_blank'><i class="fas fa-unlock-alt"></i><span class="ctrl">Se connecter</span></a>
+					</div>
+					<div class="grid-3 margep">
+						<a class='btnheader margep' href='{{path('create_message')}}' target='_blank'><i class="fas fa-envelope"></i><span class="ctrl">Me contacter</span></a>
+					</div>	
+				</div>
+			</div>
 		
-			
 	</header>
 	
-	<div class="container">
+	
 		
 		<!-- Introduction-->
-		<section class="center" id="Accueil">
-			<h1>Bienvenue !</h1>
-			<a class='button' href='{{path('Admin')}}' target='_blank'>Se connecter</a>
-			<a class='button' href='{{path('create_message')}}' target='_blank'>Me contacter</a>
-			<p class="margep">
-				{{personnel.getDescription()}}
-			</p>
+		<section class="center black" id="Accueil">
+			<div class="container">
+				<div class="row">
+					<div class="grid-2">
+						<h1>Bienvenue !</h1>
+						<p class="margep">
+							{{personnel.getDescription()}}
+						</p>
+					</div>
+					<div class="grid-4">
+						<img src="{{asset('img/signature.gif')}}"  />
+					</div>
+				</div>
+			</div>	
 		</section>
 		<hr>
-		
+		<div class="container">
 		<!-- Gallery Block-->
 		<section class="gallery" id="Creation">
-			<h1 class="center">Gallery</h1>
+			<h1 class="center">Mes créations</h1>
 			<div class="row">
-              <div class="button-group filter-button-group col-12 text-center center">
-                <button data-filter="*" class="button">Tous</button>
-                <button data-filter=".affiche" class="button">Affiche</button>
-                <button data-filter=".illustration" class="button">Illustration</button>
-                <button data-filter=".video" class="button">Video</button>
+              <div class="button-group filter-button-group grid-6 center">
+                <button data-filter="*" class="btn">Tous</button>
+                <button data-filter=".affiche" class="btn">Affiche</button>
+                <button data-filter=".illustration" class="btn">Illustration</button>
+                <button data-filter=".video" class="btn">Video</button>
               </div>
 			<div class="row isotope">
 				<a class="element-item illustration" href="#"><img src="{{asset('img/livre.PNG')}}" class="grid-2"></a>
@@ -115,7 +141,7 @@
 				<div class="grid-3">
 					<h1>Projet mit en avant : {{realisations.getTitle}}</h1>
 					<p>{{realisations.getDescription}}</p>
-					<a href="#">Voir le projet</a>
+					<a  class="buttonheader" href="#">Voir le projet</a>
 				</div>
 			</div>
 		</div>
@@ -127,41 +153,38 @@
 		<!-- Testimonials-->	
 		<section class="testimonial" id="Langue">
 			<h1 class="center">Langues</h1>
-			<div class="row">
-				
-				
 				<div class="skill-container">
-				
-				  <div class="skill-unit">
-				      <div class="skill-lable">
-				      		{{lv1.getTitle()}}
-				      		{% if is_granted('ROLE_ADMIN') %}
-								 <ul>
-								 	<li>
-								 		<a class="button"href="{{ path('lv1_edit',{ 'id':lv1.getId()} )}}" target="_blank">Edite</a>
-								 	</li>
-								 	<li>
-								 		<a class="button"href="{{ path('lv1_delete',{ 'id':lv1.getId()} )}}" target="_blank">Remove</a>
-								 	</li>
-								 </ul>
-							{% endif %}
-				      </div>
-				      	<div class="skill-icon skill-{{lv1.getNiveau()}}">
-				      		<span></span><span></span><span></span><span></span><span></span>
-				      		<span></span><span></span><span></span><span></span><span></span>
-				      	</div><!--Skill-Icon-->
-				  </div><!--END-Skill-Unit-->
+					<div class="row">
+						  <div class="skill-unit">
+						      <div class="skill-lable">
+						      		{{lv1.getTitle()}}
+						      		{% if is_granted('ROLE_ADMIN') %}
+										 <ul>
+										 	<li class="center">
+										 		<a class="button ctr"href="{{ path('lv1_edit',{ 'id':lv1.getId()} )}}" target="_blank"><i class="fas fa-edit"></i><span class="ctrl">Edit</span></a>
+										 	</li>
+										 	<li class="center">
+										 		<a class="button ctr"href="{{ path('lv1_delete',{ 'id':lv1.getId()} )}}" target="_blank"><i class="fas fa-eraser"></i><span class="ctrl">Remove</span></a>
+										 	</li>
+										 </ul>
+									{% endif %}
+						      </div>
+						      	<div class="skill-icon skill-{{lv1.getNiveau()}}">
+						      		<span></span><span></span><span></span><span></span><span></span>
+						      		<span></span><span></span><span></span><span></span><span></span>
+						      	</div><!--Skill-Icon-->
+						  </div><!--END-Skill-Unit-->
 				  
 				  <div class="skill-unit">
 				      <div class="skill-lable">
 				      	{{lv2.getTitle()}}
 				      		{% if is_granted('ROLE_ADMIN') %}
 								 <ul>
-								 	<li>
-								 		<a class="button"href="{{ path('lv2_edit',{ 'id':lv2.getId()} )}}" target="_blank">Edite</a>
+								 	<li class="center">
+								 		<a class="button ctr"href="{{ path('lv2_edit',{ 'id':lv2.getId()} )}}" target="_blank"><i class="fas fa-edit"></i><span class="ctrl">Edit</span></a>
 								 	</li>
-								 	<li>
-								 		<a class="button"href="{{ path('lv2_delete',{ 'id':lv2.getId()} )}}" target="_blank">Remove</a>
+								 	<li class="center">
+								 		<a class="button ctr"href="{{ path('lv2_delete',{ 'id':lv2.getId()} )}}" target="_blank"><i class="fas fa-eraser"></i><span class="ctrl">Remove</span></a>
 								 	</li>
 								 </ul>
 							{% endif %}
@@ -177,11 +200,11 @@
 				      	{{lv3.getTitle()}}
 				      		{% if is_granted('ROLE_ADMIN') %}
 								 <ul>
-								 	<li>
-								 		<a class="button"href="{{ path('lv3_edit',{ 'id':lv3.getId()} )}}" target="_blank">Edite</a>
+								 	<li class="center">
+								 		<a class="button ctr"href="{{ path('lv3_edit',{ 'id':lv3.getId()} )}}" target="_blank"><i class="fas fa-edit"></i><span class="ctrl">Edit</span></a>
 								 	</li>
-								 	<li>
-								 		<a class="button"href="{{ path('lv3_delete',{ 'id':lv3.getId()} )}}" target="_blank">Remove</a>
+								 	<li class="center">
+								 		<a class="button ctr"href="{{ path('lv3_delete',{ 'id':lv3.getId()} )}}" target="_blank"><i class="fas fa-eraser"></i><span class="ctrl">Remove</span></a>
 								 	</li>
 								 </ul>
 							{% endif %}
@@ -196,56 +219,59 @@
 		</section>
 	
 			
+		</div>
 		
-		<hr>
 			
 		<!--Experience Tables-->
 		<section class="experience" id="Experience">
-			<h1 class="center">Experiences Professionnel</h1>
-			<div class="center"> 
-				{% if is_granted('ROLE_ADMIN') %}
-					<a class="button" href="{{path('experience_new')}}" target="_blank">Create</a>
-				{% endif %}
-			</div>
-				{% for experience in experiences %}
-                	<div class="row">
-						<div class="grid-2">
-							<h2>{{experience.getTitle()}}</h2>
-							<p>{{ experience.getDatedebut()|date('d-m-Y') }} - 	{{ experience.getDatefin|date('d-m-Y') }}</p>
-							{% if is_granted('ROLE_ADMIN') %}
+			<hr>
+			<div class="container">
+				<h1 class="center">Experiences Professionnel</h1>
+				<div class="center"> 
+					{% if is_granted('ROLE_ADMIN') %}
+						<a class="button" href="{{path('experience_new')}}" target="_blank"><i class="fas fa-plus"></i><span class="ctrl">Create</span></a>
+					{% endif %}
+				</div>
+					{% for experience in experiences %}
+	                	<div class="row">
+							<div class="grid-2">
+								<h2>{{experience.getTitle()}}</h2>
+								<p>{{ experience.getDatedebut()|date('d-m-Y') }} - 	{{ experience.getDatefin|date('d-m-Y') }}</p>
+								{% if is_granted('ROLE_ADMIN') %}
+									<ul>
+										<li class="center">
+											<a class="buttonheader ctr"href="{{ path('experience_edit',{ 'id':experience.getId()} )}}" target="_blank"><i class="fas fa-edit"></i><span class="ctrl">Edit</span></a>
+										</li>
+										<li class="center">
+											<a class="buttonheader ctr"href="{{ path('experience_delete',{ 'id':experience.getId()} )}}" target="_blank"><i class="fas fa-eraser"></i><span class="ctrl">Remove</span></a>
+										</li>
+									</ul>
+								{% endif %}
+							</div>
+							<div class="grid-4">
 								<ul>
-									<li>
-										<a class="button"href="{{ path('experience_edit',{ 'id':experience.getId()} )}}" target="_blank">Edite</a>
-									</li>
-									<li>
-										<a class="button"href="{{ path('experience_delete',{ 'id':experience.getId()} )}}" target="_blank">Remove</a>
-									</li>
+									<li class="center">Description :	{{experience.getDescription()}}</li>
+									
 								</ul>
-							{% endif %}
+							</div>
+							<div class="grid-4">
+									<ul>
+										<li class="center">Apport : {{experience.getApport()}}</li>
+									</ul>
+							</div>
+							
 						</div>
-						<div class="grid-4">
-							<ul>
-								<li>Description :	{{experience.getDescription()}}</li>
-								
-							</ul>
-						</div>
-						<div class="grid-4">
-								<ul>
-									<li>Apport : {{experience.getApport()}}</li>
-								</ul>
-						</div>
-						
-					</div>
-                {% endfor %}
+	                {% endfor %}
+	        </div>        
 		</section>
-		
+		<div class="container"
 		<hr>
 			<!--Loisirs Tables-->
 		<section class="experience" id="Loisir">
 			<h1 class="center">Loisirs</h1>
 			<div class="center"> 
 				{% if is_granted('ROLE_ADMIN') %}
-					<a class="button" href="{{path('experience_new')}}" target="_blank">Create</a>
+					<a class="button ctr" href="{{path('experience_new')}}" target="_blank"><i class="fas fa-plus"></i><span class="ctrl">Create</span></a>
 				{% endif %}
 			</div>
 				{% for loisir in loisirs %}
@@ -253,21 +279,23 @@
 						<div class="grid-2">
 							<h2>{{loisir.getTitle()}}</h2>
 							<p>{{ loisir.getYear()|date('d-m-Y')}}</p>
-							{% if is_granted('ROLE_ADMIN') %}
-								<ul>
-									<li>
-										<a class="button"href="{{ path('loisirs_edit',{ 'id':loisir.getId()} )}}" target="_blank">Edite</a>
-									</li>
-									<li>
-										<a class="button"href="{{ path('loisirs_delete',{ 'id':loisir.getId()} )}}" target="_blank">Remove</a>
-									</li>
-								</ul>
-							{% endif %}
 						</div>
 						<div class="grid-4">
 							<ul>
 								<li>{{loisir.getApport()}}</li>
 							</ul>
+						</div>
+						<div class="grid-6">
+							{% if is_granted('ROLE_ADMIN') %}
+								<ul class="container">
+									<li class="center">
+										<a class="button ctr"href="{{ path('loisirs_edit',{ 'id':loisir.getId()} )}}" target="_blank"><i class="fas fa-edit"></i><span class="ctrl">Edit</span></a>
+									</li>
+									<li class="center">
+										<a class="button ctr"href="{{ path('loisirs_delete',{ 'id':loisir.getId()} )}}" target="_blank"><i class="fas fa-eraser"></i><span class="ctrl">Remove</span></a>
+									</li>
+								</ul>
+							{% endif %}
 						</div>
 					</div>
                 {% endfor %}
@@ -281,7 +309,7 @@
 				<div class="grid-2">
 					<h1>Compétences</h1>
 					{% if is_granted('ROLE_ADMIN') %}
-						<a class="button"href="{{path('competences_new')}}" target="_blank">Create</a>
+						<a class="button"href="{{path('competences_new')}}" target="_blank"><i class="fas fa-plus"></i><span class="ctrl">Create</span></a>
 					{% endif %}
 					<ul>
 						{% for competence in competences %}
@@ -291,11 +319,11 @@
 			               	<li>
 			               		{% if is_granted('ROLE_ADMIN') %}
 			               			<ul>
-			               				<li>
-			               					<a class="button" href="{{ path('competences_edit',{ 'id':competence.getId()} )}}" target="_blank">Edite</a>
+			               				<li class="center">
+			               					<a class="button" href="{{ path('competences_edit',{ 'id':competence.getId()} )}}" target="_blank"><i class="fas fa-edit"></i><span class="ctrl">Edit</span></a>
 			               				</li>
-			               				<li>
-			               					<a class="button" href="{{ path('competences_delete',{ 'id':competence.getId()} )}}" target="_blank">Remove</a>
+			               				<li class="center">
+			               					<a class="button" href="{{ path('competences_delete',{ 'id':competence.getId()} )}}" target="_blank"><i class="fas fa-eraser"></i><span class="ctrl">Remove</span></a>
 			               				</li>
 			               			</ul>
 								{% endif %}
@@ -319,7 +347,7 @@
 				</div>
 			</div>
 		</section>
-	
+	</div>
 		<!--Footer-->
 		<footer class="center">
 			<hr>

@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ContactType extends AbstractType
 {
@@ -17,7 +18,7 @@ class ContactType extends AbstractType
             ->add('prenom')
             ->add('mail')
             ->add('sujet')
-            ->add('message')
+            ->add('message', TextareaType::class)
             ->add('save', SubmitType::class, [
                 'attr' => ['class' => 'save'],
             ])

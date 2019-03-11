@@ -10,8 +10,8 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: 'Lato', sans-serif;
   font-weight: 300;
+  color: #948a64;
 }
 
 a {
@@ -21,7 +21,7 @@ a {
 
 a:focus,
 a:hover {
-  color: #6594e0;
+  color: #948a64;
 }
 
 p {
@@ -40,7 +40,15 @@ li
 img {
   max-width: 100%;
 }
-
+.white
+{
+  color: white;
+}
+#Experience
+{
+  background-color: black;
+  color: white;
+}
 hr {
   border-top: 1px solid #ccc;
   border-bottom: none;
@@ -51,17 +59,52 @@ hr {
 {
   position: relative!important;
 }
-
-.button {
+.black
+{
+  background-color: black;
+  color: white;
+  
+}
+.btnheader{
     background-color: transparent;
-    border: 3px solid #e4382c;
+    border: 3px solid white;
     padding: 7px 35px;
     border-radius: 3px;
-    color: #e4382c;
+    color: white;
     font-size: 1.1em;
-    margin-bottom: 10px;
+}
+.buttonheader{
+    background-color: transparent;
+    border: 3px solid white;
+    padding: 7px 35px;
+    border-radius: 3px;
+    color: white;
+    font-size: 1.1em;
+    display: block;
+    width: 150px;
+    text-align: center;
+}
+.button {
+    background-color: transparent;
+    border: 3px solid black;
+    padding: 7px 35px;
+    border-radius: 3px;
+    color: black;
+    font-size: 1.1em;
+    display: block;
+    width: 150px;
+    text-align: center;
+}
+.btn {
+    background-color: transparent;
+    border: 3px solid black;
+    padding: 7px 35px;
+    border-radius: 3px;
+    color: black;
+    font-size: 1.1em;
 }
 header {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 50%, #000 100%), url("/my_cv/public/img/prog.jpeg");
   background-color: #999;
   background-repeat: no-repeat;
   background-position: center center;
@@ -69,7 +112,6 @@ header {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  margin-bottom: 4em;
   text-align: center;
   height: 500px;
  
@@ -244,7 +286,10 @@ footer hr {
     text-align: left;
   }
 }
-
+.ctr
+{
+  margin-left: 40%
+}
 
 /* Education Block */
 .education {
@@ -285,7 +330,7 @@ footer hr {
 
 /* Spotlight */
 .spotlight {
-  background-color: #999;
+  background-color: black;
   padding: 3em 1em;
   margin-top: 3em;
   margin-bottom: 3em;
@@ -300,34 +345,17 @@ footer hr {
   display: block;
 }
 
-.spotlight h1 {
-  color: #e4382c;
-}
 .margep
 {
-  margin: 20px;
+  margin-bottom: 50px;
 }
 
 .spotlight p {
-  color: #6d5e53;
+  color: white;
   font-size: 1.1em;
 }
 
-.spotlight a {
-  background-color: transparent;
-  border: 3px solid #e4382c;
-  padding: 7px 35px;
-  border-radius: 3px;
-  color: #e4382c;
-  font-size: 1.1em;
-  opacity: .8;
-  margin-bottom: 10px;
-}
 
-.spotlight a:hover {
-  opacity: 1;
-  cursor: pointer;
-}
 
 @media screen and (min-width: 40em) {
   .spotlight {
@@ -356,5 +384,30 @@ img#imgperso {
   .head2
   {
     margin-top: 200px;
+  }
+}
+
+.grayscale img:hover  {
+
+-webkit-filter: grayscale(0%); /* Chrome, Safari, Opera */
+filter: grayscale(0%);
+-webkit-transition:all 0.3s;
+transition:all 0.3s;
+
+}
+
+.grayscale img{
+
+-webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */
+filter: grayscale(100%);
+
+}
+.ctrl{
+    margin: 10px;
+  }
+
+@media screen and (max-width: 640px) {
+  .ctrl{
+    display:none;
   }
 }

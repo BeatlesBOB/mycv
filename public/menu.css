@@ -82,6 +82,7 @@
    text-align: center;
    box-sizing: border-box;
    font-size: 26px;
+   margin-bottom: 20px
 }
 
 
@@ -209,13 +210,13 @@
    transform: translate3d(-0.25084px, -104.9997px, 0);
 }
 .red {
-   background-color: #f44336;
+   background-color: #191919;
    box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
 }
 
 .red:hover {
-   color: #FE4365;
+   color: #191919;
    text-shadow: none;
 }
 

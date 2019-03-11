@@ -17,8 +17,7 @@ class ContactController extends AbstractController
         return $this->render('contact/create.html.twig', [
             'entity' => $contact,
             'form' => $form->createView(),
-            ]
-        );
+         ]);
     }
 
     public function valid(Request $request)
@@ -40,7 +39,6 @@ class ContactController extends AbstractController
         return $this->render('contact/create.html.twig', [
             'entity' => $contact,
             'form' => $form->createView(),
-            ]
-        );
+        ]);
     }
 }
