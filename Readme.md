@@ -12,16 +12,19 @@ J'ai voulus crée ce Cv dans le but qu'il soit le plus modifiable possible, afin
 * Le menu renvoie a des encre sur le site et le scroll ce fait a travers une fonction javascript afin d'etre plus fluide.
 * Les réalisation sont gérés dans un Isotope, soit il est possible au visiteur de trié les créations a l'aide des bouton. ![Alt text](/readimg//tri.PNG "Tri")
 * Il y a deux test , un test unitaire qui test si la class et l'Entity Experience fonctionne, et un texte fonctionnel si la base renvoie bien le nom de l'Entity personne.
-* L'annotion @ApiResource est présente sour chaque entité.
+* L'annotion @ApiResource est présente sour chaque entité. ![Alt text](/readimg/api.PNG "Modification")
 * Le formulaire de contact enregistre les données sur la base de donnée.
 * Le projet est selon Checkstyle conforme.
 * Il et possible de ce connecter selon la méthode In_memory.
+* Le site est responsive.
 
 ### Prerequis
 
 Afin de se connecter au CV le lien est le [suivant](https://symphony-allardnathanael.c9users.io/my_cv/public/index.php/)
 
-## Pour acceder a Symphony dans le projet 
+## Installation
+
+Crée un dossier my_cv puis glissé les éléments a l'interieure.
 
 ```
 cd my_cv
@@ -38,6 +41,7 @@ Puis les commandes sont accessible via la commande
 ```
  php vendor/bin/codecept run unit ExampleTest
 ```
+![Alt text](/readimg/assertion.PNG "assertion")
 -------------------------------------------------------------------------------------------
 
 ### Ce test vérifie si il trouve mon nom et prénom Dans la page principale du CV
@@ -45,6 +49,8 @@ Puis les commandes sont accessible via la commande
 ```
  php vendor/bin/codecept run acceptance SigninCest
 ```
+![Alt text](/readimg/accept.PNG "acceptance")
+
 ## Admin
 
 Appuyer sur le bouton se connecter
@@ -69,3 +75,4 @@ Appuyer sur le bouton se connecter
 
 * Mot de passe et login en base de donnée
 * Les images directement modifable ( si possible ) sans passé par le projet symphony
+* Le bouton Voir le projet ne marche pas

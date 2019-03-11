@@ -38,6 +38,9 @@
 					<img id="imgperso" src="{{asset(personnel.getPhoto())}}">
 					<h1>{{personnel.getNom()}}  {{personnel.getPrenom()}}</h1>
 					<p>{{personnel.getStatut()}}</p>
+					<h2>{{personnel.getSex()}}</h2>
+					<h2>{{personnel.getAge()}} ans</h2>
+					
 				</div>
 				<div class="grid-3 head2">
 					<nav class="menu">
@@ -312,6 +315,7 @@
 						<li>Email: <a href="" target="_blank">  {{personnel.getMail()}}</a></li>
 						<li>Website: <a href="http://www.bloggs.com"> {{personnel.getSite}}</a></li>
 						<li>Téléphone:{{personnel.getTelephone()}}</li>
+						<li>Adresse: {{personnel.getAdresse()}}</li>
 					</ul>
 				</div>
 			</div>
@@ -320,7 +324,7 @@
 		<!--Footer-->
 		<footer class="center">
 			<hr>
-			<span>&copy; {{personnel.getNom()}}  {{personnel.getPrenom()}} 2018</span>
+			<span>&copy; {{personnel.getNom()}}  {{personnel.getPrenom()}} 2019</span>
 		</footer>
 		
 	</div><!-- End Container -->
